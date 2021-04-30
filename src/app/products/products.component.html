@@ -1,0 +1,19 @@
+<!--h3>Edit product name for {{ product.name }}</h3-->
+<!--input type="text" [id]="product.id" [(ngModel)]="product.name"-->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products$ | async">
+            <td>{{ product.name | uppercase }}</td>
+            <td>{{ product.price | currency : 'PLN' }}</td>
+            <td><button class="btn btn-primary" (click)="edit(product)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

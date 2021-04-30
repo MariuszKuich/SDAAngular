@@ -1,0 +1,11 @@
+<ng-container *ngIf="product"><ng-container *ngIf="product"></ng-container>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name (current name: {{ product.name }})</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="product.name">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price (current price: {{ product.price }})</label>
+        <input type="text" class="form-control" id="price" [(ngModel)]="product.price">
+    </div>
+    <button class="btn btn-warning" (click)="cancelEdit(product)">Cancel</button>
+</ng-container>
