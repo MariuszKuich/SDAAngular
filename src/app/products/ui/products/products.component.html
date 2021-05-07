@@ -1,12 +1,13 @@
 <!--h3>Edit product name for {{ product.name }}</h3-->
 <!--input type="text" [id]="product.id" [(ngModel)]="product.name"-->
 
-<table class="table">
+<table class="table" *ngIf="productsTableIsEnabled">
     <thead>
         <tr>
             <th>Name</th>
             <th>Price</th>
             <th>Action</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <td>{{ product.name | uppercase }}</td>
             <td>{{ product.price | currency : 'PLN' }}</td>
             <td><button class="btn btn-primary" (click)="edit(product)">Edit</button></td>
+            <td><button class="btn btn-danger" (click)="delete(product)">Delete</button></td>
         </tr>
     </tbody>
 </table>
