@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../../domain/product';
 import { ProductsService } from '../../infrastructure/products.service';
 import { SelectedProductState } from '../../application/selected-product.state';
+import { concatMap, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-page',
@@ -36,7 +37,17 @@ export class EditPageComponent implements OnInit {
   }
 
   onUpdated(product: Product): void {
-    this.productService.update(product).subscribe();
+    this.route.paramMap.pipe(
+      filter(params => !!params.get("id")),
+      map(params => params.get("id")),
+      concatMap(id => this.productService.update(id, product))
+    ).subscribe(product => this.router.navigate(["/products"]));
+    /*this.route.paramMap.subscribe((params) => {
+      const productId = params.get("id");
+      if (productId) {
+        this.productService.update(productId, product).subscribe();
+      }
+    });*/
     this.selectedProductState.setProduct(null);
   }
 }

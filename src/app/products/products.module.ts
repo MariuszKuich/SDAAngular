@@ -5,7 +5,7 @@ import { ProductFormComponent } from './ui/product-form/product-form.component';
 import { EditPageComponent } from './ui/edit-page/edit-page.component';
 import { ProductsService } from './infrastructure/products.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductsRoutingModule } from './products-routing.module';
 
@@ -21,6 +21,7 @@ import { ProductsRoutingModule } from './products-routing.module';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     ProductsRoutingModule
   ],

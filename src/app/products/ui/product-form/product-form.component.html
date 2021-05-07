@@ -1,12 +1,25 @@
-<ng-container *ngIf="product"><ng-container *ngIf="product"></ng-container>
+<form *ngIf="product" [formGroup]="form">
     <div class="mb-3">
         <label for="name" class="form-label">Name (current name: {{ product.name }})</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="product.name">
+        <input type="text" class="form-control" id="name" formControlName="name">
     </div>
     <div class="mb-3">
         <label for="price" class="form-label">Price (current price: {{ product.price }})</label>
-        <input type="text" class="form-control" id="price" [(ngModel)]="product.price">
+        <input type="text" class="form-control" id="price" formControlName="price">
     </div>
-    <button class="btn btn-warning" (click)="cancelEdit(product)">Cancel</button>
-    <button class="btn btn-success" (click)="update(product)">Update</button>
-</ng-container>
+    <div class="mb-3">
+        <label for="currency" class="form-label">Currency (current currency: {{ product.currency }})</label>
+        <input type="text" class="form-control" id="currency" formControlName="currency">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description (current description: {{ product.description }})</label>
+        <input type="text" class="form-control" id="description" formControlName="description">
+    </div>
+    <img [src]="product.image" class="img-thumbnail mb-2" />
+    <div class="mb-3">
+        <label for="image" class="form-label">Image URL (current image URL: {{ product.image }})</label>
+        <input type="text" class="form-control" id="image" formControlName="image">
+    </div>
+    <button class="btn btn-warning" (click)="cancelEdit()">Cancel</button>
+    <button class="btn btn-success" (click)="update()" [disabled]="form.invalid">Update</button>
+</form>

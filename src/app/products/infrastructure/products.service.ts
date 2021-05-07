@@ -24,8 +24,8 @@ export class ProductsService {
     return this.httpClient.get<Product>(`${this.apiUrl}/${id}`);
   }
 
-  update(updatedProduct: Product): Observable<Product> {
-    return this.httpClient.put<Product>(`${this.apiUrl}/${updatedProduct.id}`, updatedProduct);
+  update(id: string, updatedProduct: Product): Observable<Product> {
+    return this.httpClient.put<Product>(`${this.apiUrl}/${id}`, updatedProduct);
   }
 
   delete(deletedProduct: Product): Observable<boolean> {

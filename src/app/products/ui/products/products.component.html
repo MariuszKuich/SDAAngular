@@ -13,7 +13,7 @@
     <tbody>
         <tr *ngFor="let product of products$ | async">
             <td>{{ product.name | uppercase }}</td>
-            <td>{{ product.price | currency : 'PLN' }}</td>
+            <td>{{ product.price | currency : product.currency : 'code' }}</td>
             <td><button class="btn btn-primary" (click)="edit(product)">Edit</button></td>
             <td><button class="btn btn-danger" (click)="delete(product)">Delete</button></td>
         </tr>
