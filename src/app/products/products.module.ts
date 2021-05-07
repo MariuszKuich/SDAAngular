@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductsRoutingModule } from './products-routing.module';
+import { ProductGridComponent } from './ui/product-grid/product-grid.component';
+import { ProductTableComponent } from './ui/product-table/product-table.component';
 
 
 
@@ -15,7 +17,9 @@ import { ProductsRoutingModule } from './products-routing.module';
   declarations: [
     ProductsComponent,
     ProductFormComponent,
-    EditPageComponent
+    EditPageComponent,
+    ProductGridComponent,
+    ProductTableComponent
   ],
   imports: [
     CommonModule,

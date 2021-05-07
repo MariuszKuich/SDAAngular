@@ -1,7 +1,6 @@
-import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import {Product} from '../../domain/product';
 import { ProductsService } from '../../infrastructure/products.service';
 import { SelectedProductState } from '../../application/selected-product.state';
@@ -13,11 +12,15 @@ import { SelectedProductState } from '../../application/selected-product.state';
 })
 export class ProductsComponent implements OnInit {
   products$: Observable<Product[]> | null;
-  productsTableIsEnabled: boolean;
+  productsListIsEnabled: boolean;
 
-  constructor(private productsService: ProductsService, private selectedProductState: SelectedProductState, private router: Router) { 
+  constructor(
+    private productsService: ProductsService, 
+    private selectedProductState: SelectedProductState, 
+    private router: Router
+    ) { 
     this.products$ = null;
-    this.productsTableIsEnabled = environment.productsTableIsEnabled;
+    this.productsListIsEnabled = true;
   }
 
   ngOnInit(): void {
@@ -34,5 +37,9 @@ export class ProductsComponent implements OnInit {
       console.log("Usunieto produkt");
       this.products$ = this.productsService.getAll();
     });
+  }
+
+  setListEnabled(enabled: boolean): void {
+    this.productsListIsEnabled = enabled;
   }
 }

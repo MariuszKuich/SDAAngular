@@ -1,21 +1,15 @@
 <!--h3>Edit product name for {{ product.name }}</h3-->
 <!--input type="text" [id]="product.id" [(ngModel)]="product.name"-->
 
-<table class="table" *ngIf="productsTableIsEnabled">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Action</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products$ | async">
-            <td>{{ product.name | uppercase }}</td>
-            <td>{{ product.price | currency : product.currency : 'code' }}</td>
-            <td><button class="btn btn-primary" (click)="edit(product)">Edit</button></td>
-            <td><button class="btn btn-danger" (click)="delete(product)">Delete</button></td>
-        </tr>
-    </tbody>
-</table>
+<button class="btn btn-info m-2" (click)="setListEnabled(true)">List</button>
+<button class="btn btn-secondary m-2" (click)="setListEnabled(false)">Grid</button>
+
+<ng-container *ngIf="productsListIsEnabled; else productsGrid">
+    <app-product-table [products$]="products$"></app-product-table>
+</ng-container>
+
+<ng-template #productsGrid>
+    <ng-container *ngIf="!productsListIsEnabled">
+        <app-product-grid [products$]="products$"></app-product-grid>
+    </ng-container>
+</ng-template>
