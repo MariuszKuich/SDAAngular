@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  //apiUrl: 'https://run.mocky.io/v3/db75b64d-1a0f-4861-9692-36ba88631fc6',
-  apiUrl: 'https://604387a8a20ace001728e2d3.mockapi.io',
+  apiUrl: 'https://6094e2f994009e00176b5f0a.mockapi.io',
   productsTableIsEnabled: true
 };
 

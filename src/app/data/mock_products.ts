@@ -4,26 +4,41 @@ export const PRODUCTS: Product[] = [
     {
       id: 1,
       name: 'Macbook',
-      price: 2000
+      price: 2000,
+      currency: '',
+      description: '',
+      image: ''
     },
     {
       id: 2,
       name: 'Thinkpad',
-      price: 1800
+      price: 1800,
+      currency: '',
+      description: '',
+      image: ''
     },
     {
       id: 3,
       name: 'HP',
-      price: 2300
+      price: 2300,
+      currency: '',
+      description: '',
+      image: ''
     },
     {
       id: 4,
       name: 'ACER',
-      price: 2000
+      price: 2000,
+      currency: '',
+      description: '',
+      image: ''
     },
     {
       id: 5,
       name: 'ASUS',
-      price: 2100
+      price: 2100,
+      currency: '',
+      description: '',
+      image: ''
     }
 ]
